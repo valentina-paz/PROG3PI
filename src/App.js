@@ -2,40 +2,49 @@ import React from "react";
 import {Link, Route, Switch} from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Favorito from "./components/Favorito/Favorito";
-import Pelicula from "./components/Pelicula/Pelicula";
-import PeliculaCartel from "./components/PeliculaCartel/PeliculaCartel";
-import Popular from "./components/Popular/Popular";
-import NotFound from "./components/NotFound/NotFound";
+import DetallePelicula from "./screens/DetallePelicula";
+import Favorito from "./screens/Favorito";
+import Home from "./screens/Home";
+import NotFound from "./screens/NotFound404";
+import ResultadoBusqueda from "./screens/ResultadoBusqueda";
+import PeliculaCartelera from "./screens/PeliculaCartelera";
+import PeliculaPopular from "./screens/PeliculaPopular";
 
 
-let navegacion = [
+let menu = [
   {
     nombre: 'Home',
-    link:'/'
+    path:'/'
   },
   {
-    nombre: 'Favoritos',
-    link:'/'
+    nombre: 'Favorito',
+    link:'/favorito'
   },
   {
-    nombre: 'Peliculas en cartel',
-    link:'/'
+    nombre: 'Peliculas en cartelera',
+    link:'/peliculasCartelera'
   },
   {
-    nombre: 'Peliculas mas populares',
-    link:'/'
-  },
+    nombre: 'Peliculas populares',
+    link:'/peliculasPopulares'
+  }
 ]
 
 function App() {
   return (
     <React.Fragment>
+      <Header elementosMenu={menu}/>
       <Switch>
+        <Route path='/detail/id/:id' component={DetallePelicula} />
+        <Route path= '/favorito' component={Favorito} />
+        <Route path='/' exact={true} component={Home} />
+        <Route path= '/peliculasCartelera' component={PeliculaCartelera} />
+        <Route path='/peliculasPopulares' component={PeliculaPopular} />
+        <Route path='/resultadosBusqueda/:resultadosBusqueda' component={ResultadoBusqueda} />
         <Route component={NotFound} />
       </Switch>
+      <Footer />
     </React.Fragment>
-    //hacer <Route path= "/componente" component={nombreComponente}/> para cada screen y para detlle de pelicula y resultados de busqueda se usa <Route path= "/componente/:parametro" component={nombreComponente}/>
   ); 
 }
 

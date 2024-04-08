@@ -1,14 +1,16 @@
-import React from "react";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Header(props){
-    return(
+
+    return (
         <nav>
-        <ul className="main-nav">
-            {
-                props.dataHeader.map((itemHeader, idx)=> <li key={idx + itemHeader.nombre}>{itemHeader.nombre}</li>)
-            }
-        </ul>
-    </nav>
+            <ul className="main-nav">
+                { 
+                    props.elementosMenu.map((elm, idx)=> <Link to= {elm.path} key={`${idx}${elm.nombre}`}>
+                    {elm.nombre} </Link>)}
+            </ul>
+        </nav>
     )
 }
 
