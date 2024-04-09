@@ -28,12 +28,6 @@ class ContenedorPeliCartel extends Component {
         .catch( err => console.log(err))
     }
 
-    borrarPelicula(id){
-        let peliculasFiltradas = this.state.peliculas.filter(elm => elm.id !== id)
-        this.setState({
-            peliculas: peliculasFiltradas
-        })
-    }
 
     traerMasPeliculas(){
         fetch(`${pelisCartelera}?page=${(this.state.page + 1)}`)
@@ -63,7 +57,6 @@ class ContenedorPeliCartel extends Component {
                 this.state.peliculas.length > 0 ?
                     this.state.peliculas.map((elm, idx) => <PeliculaCartel 
                     key={idx + elm.name} data={elm} 
-                    borrar={(id)=> this.borrarPelicula(id)}
                     />)
                 :
                 <h1>Cargando</h1>

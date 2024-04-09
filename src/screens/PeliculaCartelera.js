@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import ContenedorPeliCartel from '../components/ContenedorPeliCartel/ContenedorPeliCartel'
 
 class PeliculaCartelera extends Component {
   render() {
     return (
-      <div>Pelicula Cartelera</div>
+      <ContenedorPeliCartel />
     )
   }
 }

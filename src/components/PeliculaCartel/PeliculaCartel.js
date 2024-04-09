@@ -14,9 +14,12 @@ class PeliculaCartel extends Component {
             </Link>
             <h2>{this.props.data.title}</h2> {/* Nombre */}
             <p>{this.props.data.overview}</p> {/* descripcion */}
-            <p className='more'>Ver más</p> 
+            <section className='extra'>
+            <p>Origen:{this.props.data.origin.name}</p> 
+        </section>
+            <button>Ver más</button>
+            <button>Agregar a favoritos</button>
         </article>
-
     )
   }
 }
