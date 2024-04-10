@@ -30,12 +30,12 @@ class PeliculaCartel extends Component {
   }
 
   sacarFavoritos(idPelicula) {
-    let storage = localStorage.getItem('favoritos')
+    let storage = localStorage.getItem('favorito')
     let storageParseado = JSON.parse(storage)
     let storageFiltrado = storageParseado.filter((elm) => elm !== idPelicula)
     this.props.actualizarStateFav(storageFiltrado)
     let storageStringificado = JSON.stringify(storageFiltrado)
-    localStorage.setItem('favoritos', storageStringificado)
+    localStorage.setItem('favorito', storageStringificado)
 
   }
 

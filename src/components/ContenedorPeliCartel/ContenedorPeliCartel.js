@@ -10,7 +10,7 @@ class ContenedorPeliCartel extends Component {
         super(props)
         this.state = {
             peliculas:[],
-            favorito: localStorage.getItem('favorito'),
+            favorito: localStorage.getItem('favorito') || [],
             backup:[],
             page:0
         }
