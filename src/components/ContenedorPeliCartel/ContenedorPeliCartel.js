@@ -28,7 +28,7 @@ class ContenedorPeliCartel extends Component {
     }
 
     traerMasPeliculas(){
-        fetch(`${pelisCartelera}?page=${(this.state.page + 1)}`)
+        fetch(`${pelisCartelera}&page=${(this.state.page + 1)}`)
         .then(resp => resp.json())
         .then(data => this.setState({
             page: this.state.page + 1,
@@ -42,11 +42,12 @@ class ContenedorPeliCartel extends Component {
   render() { 
     return (
         <div>
-            <div className='rickContainer'>
+            <div className='pelisCartelContainer'>
                 {
-                this.state.peliculas.length > 0 ?
-                    this.state.peliculas.map((elm, idx) => <PeliculaCartel 
-                    key={idx + elm} data={elm} 
+                console.log(this.state.peliculas)}
+                {this.state.peliculas.length > 0 ?
+                    this.state.peliculas.map((elm, idx) => 
+                    <PeliculaCartel key={idx + elm.title} data={elm} 
                     />)
                 :
                 <h1>Cargando</h1>
