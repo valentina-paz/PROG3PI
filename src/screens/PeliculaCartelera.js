@@ -4,7 +4,11 @@ import ContenedorPeliCartel from '../components/ContenedorPeliCartel/ContenedorP
 class PeliculaCartelera extends Component {
   render() {
     return (
+      <React.Fragment>
+      <h1>PELICULAS EN CARTELERA</h1>
+      <p>aca va el componente del formulario para buscar peliculas</p>
       <ContenedorPeliCartel />
+      </React.Fragment>
     )
   }
 }

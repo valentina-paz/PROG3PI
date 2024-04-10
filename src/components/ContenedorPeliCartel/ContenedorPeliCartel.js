@@ -19,7 +19,6 @@ class ContenedorPeliCartel extends Component {
         fetch(pelisCartelera)
         .then(resp => resp.json())
         .then( data => {
-            console.log(data)
             this.setState({
             peliculas: data.results,
             backup: data.results,
@@ -28,35 +27,26 @@ class ContenedorPeliCartel extends Component {
         .catch( err => console.log(err))
     }
 
-
     traerMasPeliculas(){
         fetch(`${pelisCartelera}?page=${(this.state.page + 1)}`)
         .then(resp => resp.json())
-        .then( data => this.setState({
-            page:this.state.page + 1,
-            peliculas: this.state.peliculas.concat(data.results),
-            backup: this.state.peliculas.concat(data.results)
+        .then(data => this.setState({
+            page: this.state.page + 1,
+            peliculas: this.state.peliculas.concat(data.results)
         }))
         .catch(err => console.log(err))
+
     }
 
-    filtrarPeliculas(valorInput){
-        let peliculasFiltradas = this.state.backup.filter(
-            (elm)=> elm.name.toLowerCase().includes(valorInput.toLowerCase())
-            )
-        this.setState({
-            peliculas: peliculasFiltradas
-        })
-    }
 
-  render() {
+  render() { 
     return (
         <div>
             <div className='rickContainer'>
                 {
                 this.state.peliculas.length > 0 ?
                     this.state.peliculas.map((elm, idx) => <PeliculaCartel 
-                    key={idx + elm.name} data={elm} 
+                    key={idx + elm} data={elm} 
                     />)
                 :
                 <h1>Cargando</h1>
