@@ -18,15 +18,15 @@ let menu = [
   },
   {
     nombre: 'Favorito',
-    link:'/favorito'
+    path:'/favorito'
   },
   {
     nombre: 'Peliculas en cartelera',
-    link:'/peliculasCartelera'
+    path:'/peliculasCartelera'
   },
   {
     nombre: 'Peliculas populares',
-    link:'/peliculasPopulares'
+    path:'/peliculasPopulares'
   }
 ]
 

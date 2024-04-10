@@ -7,7 +7,7 @@ function Header(props){
         <nav>
             <ul className="main-nav">
                 { 
-                    props.elementosMenu.map((elm, idx)=> <Link to= {elm.path} key={`${idx}${elm.nombre}`}>
+                    props.elementosMenu.map((elm, idx)=> <Link to= {elm.path} key={`${idx}${elm.path}`}>
                     {elm.nombre} </Link>)}
             </ul>
         </nav>

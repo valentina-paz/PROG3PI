@@ -10,6 +10,7 @@ class ContenedorPeliCartel extends Component {
         super(props)
         this.state = {
             peliculas:[],
+            favorito: localStorage.getItem('favorito'),
             backup:[],
             page:0
         }
@@ -38,16 +39,22 @@ class ContenedorPeliCartel extends Component {
 
     }
 
+    actualizarStateFav(arrStorage){
+        this.setState({
+            favorito: arrStorage
+        })
+    }
 
   render() { 
     return (
         <div>
             <div className='pelisCartelContainer'>
-                {
-                console.log(this.state.peliculas)}
+               
                 {this.state.peliculas.length > 0 ?
                     this.state.peliculas.map((elm, idx) => 
                     <PeliculaCartel key={idx + elm.title} data={elm} 
+                    estaEnFav = { this.state.favorito.includes(elm.id) }
+                    actualizarStateFav= {(arr)=> this.actualizarStateFav(arr)}
                     />)
                 :
                 <h1>Cargando</h1>
