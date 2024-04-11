@@ -16,7 +16,7 @@ class FormFiltro extends Component {
         this.setState({
             valorInput: evento.target.value
         },
-        ()=> this.props.filtrarPersonajes(this.state.valorInput))
+        ()=> this.props.filtrarPeliculas(this.state.valorInput))
     }
 
     render() {
