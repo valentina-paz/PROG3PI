@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PeliculaCartel from '../PeliculaCartel/PeliculaCartel'
 import FormFiltro from '../FormFiltro/FormFiltro' 
-//VA A SER REUSLTADOS D BUSQUEDA
 //importar el css
 let pelisCartelera = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06'
 

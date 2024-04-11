@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PeliculaCartel from '../components/PeliculaCartel/PeliculaCartel'
 
+let pelisCartelera = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06'
+
 class Favorito extends Component {
 
   constructor(props){
@@ -15,7 +17,7 @@ class Favorito extends Component {
     if(this.state.favorito !== null){
       let storageParseado = JSON.parse(this.state.favorito)
       Promise.all(
-        storageParseado.map((elm)=> fetch(`https://api.themoviedb.org/3/movie/`+ elm)
+        storageParseado.map((elm)=> fetch(`https://api.themoviedb.org/3/movie/${elm}?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06`)
         .then(resp => resp.json())
         )
       )

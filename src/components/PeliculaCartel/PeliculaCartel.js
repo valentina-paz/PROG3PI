@@ -7,13 +7,13 @@ class PeliculaCartel extends Component {
     this.state = {
       descripcionOculta: true,
       botonText: 'Ver descripcion',
+      favoritos: []
     }
   }
+  
 
   agregarFavoritos(idPelicula) {
     let storage = localStorage.getItem('favorito')
-
-
     if (storage !== null) {
       let storageParse = JSON.parse(storage)
       storageParse.push(idPelicula)
@@ -56,7 +56,7 @@ class PeliculaCartel extends Component {
   render() {
     return (
       <article className='character-card'>
-        <Link to={'/peliculasCartelera' + this.props.data.id}>
+        <Link to={`/detail/id/${this.props.data.id}`}>
           <img src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
         </Link>
         <h2>{this.props.data.title}</h2> {/* Nombre */}
@@ -87,7 +87,9 @@ class PeliculaCartel extends Component {
         }
 
         <button onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
-        <button>Ir a detalle</button>
+        <button>
+          <Link to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
+        </button>
 
       </article>
     )
