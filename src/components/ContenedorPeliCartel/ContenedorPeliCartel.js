@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PeliculaCartel from '../PeliculaCartel/PeliculaCartel'
-//import FormFiltro from '../FormFiltro/FormFiltro' 
+import FormFiltro from '../FormFiltro/FormFiltro' 
 //VA A SER REUSLTADOS D BUSQUEDA
 //importar el css
 let pelisCartelera = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06'
@@ -33,10 +33,19 @@ class ContenedorPeliCartel extends Component {
         .then(resp => resp.json())
         .then(data => this.setState({
             page: this.state.page + 1,
-            peliculas: this.state.peliculas.concat(data.results)
+            peliculas: this.state.peliculas.concat(data.results),
+            backup: this.state.peliculas.concat(data.results)
         }))
         .catch(err => console.log(err))
 
+    }
+
+    filtrarPeliculas(valorInput){
+        let peliculasFiltradas= this.state.backup.filter(
+            (elm)=>elm.title.toLowerCase().includes(valorInput.toLowerCase()))
+        this.setState({
+            peliculas: peliculasFiltradas
+        })
     }
 
     actualizarStateFav(arrStorage){
@@ -48,8 +57,9 @@ class ContenedorPeliCartel extends Component {
   render() { 
     return (
         <div>
+            <FormFiltro 
+                filtrarPersonajes={(valorInput)=> this.filtrarPeliculas(valorInput)}/>
             <div className='pelisCartelContainer'>
-               
                 {this.state.peliculas.length > 0 ?
                     this.state.peliculas.map((elm, idx) => 
                     <PeliculaCartel key={idx + elm.title} data={elm} 

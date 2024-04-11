@@ -18,7 +18,7 @@ let menu = [
   },
   {
     nombre: 'Favorito',
-    path:'/favorito'
+    path:'/favoritos'
   },
   {
     nombre: 'Peliculas en cartelera',
@@ -36,7 +36,7 @@ function App() {
       <Header elementosMenu={menu}/>
       <Switch>
         <Route path='/detail/id/:id' component={DetallePelicula} />
-        <Route path= '/favorito' component={Favorito} />
+        <Route path= '/favoritos' component={Favorito} />
         <Route path='/' exact={true} component={Home} />
         <Route path= '/peliculasCartelera' component={PeliculaCartelera} />
         <Route path='/peliculasPopulares' component={PeliculaPopular} />

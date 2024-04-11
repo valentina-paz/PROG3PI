@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div><p>Pilar Canil | Valentina Paz | Antonella Plati</p></div>
   )
 }
 
