@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import FormFiltro from '../components/FormFiltro/FormFiltro'
-import contenedorPopular from '../components/contenedorPopular/contenedorPopular'
+import ContenedorPeliPopular from '../components/ContenedorPeliPopular/ContenedorPeliPopular'
 let pelisPopularesUrl= 'https://api.themoviedb.org/3/movie/popular?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06'
-
-
-
 
 class PeliculaPopular extends Component {
   constructor (props){
@@ -53,7 +50,7 @@ class PeliculaPopular extends Component {
       <div>
       <FormFiltro
         filtrarPeliculas={(valorInput) => this.filtrarPeliculas(valorInput)} />
-      <contenedorPopular pelisPouplares={this.state.peliculas} />
+      <ContenedorPeliPopular pelisPouplares={this.state.peliculas} />
       <div>
         <button onClick={() => this.traerMasPeliculas()}>
           Mas peliculas

@@ -64,33 +64,46 @@ ocultarYMostrarDescripcion() {
     })
   }
 }
+render() {
+  return (
+    <article className='character-card'>
+      <Link to={`/detail/id/${this.props.data.id}`}>
+        <img src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
+      </Link>
+      <h2>{this.props.data.title}</h2> {/* Nombre */}
+      <section className='extra'> {/* descripcion */}
+        {
+          this.state.descripcionOculta ?
+            ''
+            :
+            <p>{this.props.data.overview}</p>
+        }
+      </section>
 
+      {
 
-  
+        this.props.estaEnFav ?
+          <button
+            onClick={() => this.sacarFavorito(this.props.data.id)}
+          >
+            Sacar de Favorito
+          </button>
+          :
+          <button
+            onClick={() => this.agregarFavorito(this.props.data.id)}
+          >
+            Agregar a Favorito
+          </button>
 
-    render() {
-        return (
-       <article className='character-card'>
-            <Link to={'/peliculasPopulares' + this.props.data.id}>
-                <img src={this.props.data.image} alt="" />
-            </Link>
-            <h2>{this.props.data.name}</h2> {/* Nombre */}
-            <p>{this.props.data.status}</p> {/* Estado */}
-            <p>{this.props.data.species}</p> {/* Especie */}
-            <p className='more'>Ver más</p> 
-            <section className='extra'>
-                <p>Origen:{this.props.data.origin.name}</p> 
-            </section>
-            <button 
-            className='delete'
-            onClick={()=> this.props.borrar(this.props.data.id)}
-            >
-                Borrar
-            </button>
-        </article> 
+      }
 
-    )
-  }
+      <button onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
+      <button>
+        <Link to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
+      </button>
+
+    </article>
+  )
 }
-
+}
 export default Popular
