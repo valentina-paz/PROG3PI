@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PeliculaCartel from '../components/PeliculaCartel/PeliculaCartel'
+import ContenedorFav from '../components/ContenedorFav/ContenedorFav';
 
 let pelisCartelera = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06'
 
@@ -8,27 +9,31 @@ class Favorito extends Component {
   constructor(props){
     super(props)
     this.state={
-      favorito: localStorage.getItem('favorito'),
-      peliculas:[]
+      Favorito: [],
+      estaEnFav: false
     }
   }
 
   componentDidMount(){
-    if(this.state.favorito !== null){
-      let storageParseado = JSON.parse(this.state.favorito)
+    let storageFavs = localStorage.getItem('Favorito')
+    if(storageFavs !== null){
+      let storageParseado = JSON.parse(storageFavs)
       Promise.all(
-        storageParseado.map((elm)=> fetch(`https://api.themoviedb.org/3/movie/${elm}?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06`)
+        storageParseado.map((id)=> fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06`)
         .then(resp => resp.json())
         )
       )
-      .then((data)=> this.setState({peliculas: data}))
+      .then((data)=> this.setState({
+        Favorito: data,
+        estaEnFav: true}))
       .catch((err)=> console.log(err))
     }
   }
 
-  actualizarStateFav(arr){
+ actualizarStateFav(id) {
+    let stateAct = this.state.Favorito.filter(elm => elm.id !== id)
     this.setState({
-      peliculas: arr
+      Favorito: stateAct
     })
   }
 
@@ -37,12 +42,14 @@ class Favorito extends Component {
       <div>
         {
           this.state.peliculas.length > 0 ?
-            this.state.peliculas.map((elm, idx) => <PeliculaCartel
-            key={`${idx}-${elm.title}`}
-            data={elm}
-            estaEnFav={true}
-            actualizarStateFav={(arr)=> this.actualizarStateFav(arr)}
-            />)
+          <div>
+          <h1 className='titulos'>Tus peliculas favoritas: </h1>
+           
+            <ContenedorFav
+            actualizarStateFav={(id) => this.actualizarState(id)} 
+            peliculas={this.state.Favorito}
+            />
+            </div>
           :
           <h1>No hay peliculas en favoritos</h1>
         

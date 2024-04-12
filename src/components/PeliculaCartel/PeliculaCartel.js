@@ -1,42 +1,57 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+
 class PeliculaCartel extends Component {
   constructor(props) {
     super(props)
     this.state = {
       descripcionOculta: true,
       botonText: 'Ver descripcion',
-      favoritos: []
+      Favorito: []
     }
   }
-  
 
-  agregarFavoritos(idPelicula) {
-    let storage = localStorage.getItem('favorito')
-    if (storage !== null) {
-      let storageParse = JSON.parse(storage)
-      storageParse.push(idPelicula)
-      this.props.actualizarStateFav(storageParse)
-      let storageStringificado = JSON.stringify(storageParse)
-      localStorage.setItem('favorito', storageStringificado)
+  componentDidMount() {
+    let storageFav = localStorage.getItem('Favorito')
+    let arrParseado = JSON.parse(storageFav)
+    if (arrParseado !== null) {
+        let estaMiPeli = arrParseado.includes(this.props.id)
+        if (estaMiPeli) {
+            this.setState({
+                estaEnFav: true
+            })
+        }
+    }
+}
+
+
+  agregarFavorito(idPelicula) {
+    let storageFav = localStorage.getItem('Favorito')
+    if (storageFav === null) {
+      let arrayId = [idPelicula]
+      let arrStringificado = JSON.stringify(arrayId)
+      localStorage.setItem('Favorito', arrStringificado)
     } else {
-      let addArr = [idPelicula]
-      this.props.actualizarStateFav(addArr)
-      let arrayString = JSON.stringify(addArr)
-      localStorage.setItem('favorito', arrayString)
+      let arrParseado = JSON.parse(storageFav)
+      arrParseado.push(idPelicula)
+      let arrStringificado = JSON.stringify(arrParseado)
+      localStorage.setItem('Favorito', arrStringificado)
     }
-
+    this.setState({
+      estaEnFav: true
+    })
   }
 
-  sacarFavoritos(idPelicula) {
-    let storage = localStorage.getItem('favorito')
-    let storageParseado = JSON.parse(storage)
-    let storageFiltrado = storageParseado.filter((elm) => elm !== idPelicula)
-    this.props.actualizarStateFav(storageFiltrado)
-    let storageStringificado = JSON.stringify(storageFiltrado)
-    localStorage.setItem('favorito', storageStringificado)
-
+  sacarFavorito(idPelicula) {
+    let storageFav = localStorage.getItem('Favorito')
+    let arrParseado = JSON.parse(storageFav)
+    let favFiltrados = arrParseado.filter((id) => id !== idPelicula)
+    let arrStringificado = JSON.stringify(favFiltrados)
+    localStorage.setItem('Favorito', arrStringificado)
+    this.setState({
+      estaEnFav: false
+    })
   }
 
   ocultarYMostrarDescripcion() {
@@ -70,18 +85,18 @@ class PeliculaCartel extends Component {
         </section>
 
         {
-          
+
           this.props.estaEnFav ?
             <button
-              onClick={() => this.sacarFavoritos(this.props.data.id)}
+              onClick={() => this.sacarFavorito(this.props.data.id)}
             >
-              Sacar de Favoritos
+              Sacar de Favorito
             </button>
             :
             <button
-              onClick={() => this.agregarFavoritos(this.props.data.id)}
+              onClick={() => this.agregarFavorito(this.props.data.id)}
             >
-              Agregar a Favoritos
+              Agregar a Favorito
             </button>
 
         }
