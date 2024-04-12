@@ -6,7 +6,9 @@ function ContenedorPeliPopular(props) {
         <div className='pelisCartelContainer'>
             {props.pelisPopulares.length > 0 ?
                 props.pelisPopulares.map((elm, idx) =>
-                    <Popular key={idx + elm.title} data={elm}
+                    <Popular 
+                    key={idx + elm.title} 
+                    data={elm}
                     />)
                 :
                 <h1>Cargando</h1>
