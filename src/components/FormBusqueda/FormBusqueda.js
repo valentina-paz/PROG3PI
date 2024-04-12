@@ -1,6 +1,7 @@
 import { Component } from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-class FormFiltro extends Component {
+class FormBusqueda extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -26,10 +27,13 @@ class FormFiltro extends Component {
             >
                 <input
                 onChange={(event)=> this.guardarValor(event)}
-                placeholder="Busca tu personaje de RM" />
+                placeholder="Busca una pelicula" />
+                <Link to={`/resultadosBusqueda/${this.state.valorInput}`}>
+                    <button type="submit">Buscar</button>
+                </Link>
             </form>
         )
     }
 }
 
-export default FormFiltro
+export default FormBusqueda
