@@ -17,7 +17,7 @@ class FormBusqueda extends Component {
         this.setState({
             valorInput: event.target.value
         },
-        ()=> this.props.filtrarPersonajes(this.state.valorInput))
+        ()=> this.props.filtrarPeliculas(this.state.valorInput))
     }
 
     render(){
