@@ -8,11 +8,13 @@ class Favorito extends Component {
     this.state = {
       descripcionOculta: true,
       botonText: 'Ver descripcion',
-      favoritos: []
+      
+      estaEnFav: false
     }
   }
-  
+
   componentDidMount() {
+    console.log("ID de la película en Favorito:", this.props.data.id);
     let storageFav = localStorage.getItem('Favorito')
     let arrParseado = JSON.parse(storageFav)
     if (arrParseado !== null) {
@@ -23,35 +25,35 @@ class Favorito extends Component {
             })
         }
     }
-  }
+}
 
   agregarFavorito(idPelicula) {
     let storageFav = localStorage.getItem('Favorito')
     if (storageFav === null) {
-        let arrayId = [idPelicula]
-        let arrStringificado = JSON.stringify(arrayId)
-        localStorage.setItem('Favorito', arrStringificado)
+      let arrayId = [idPelicula]
+      let arrStringificado = JSON.stringify(arrayId)
+      localStorage.setItem('Favorito', arrStringificado)
     } else {
-        let arrParseado = JSON.parse(storageFav)
-        arrParseado.push(idPelicula)
-        let arrStringificado = JSON.stringify(arrParseado)
-        localStorage.setItem('Favorito', arrStringificado)
+      let arrParseado = JSON.parse(storageFav)
+      arrParseado.push(idPelicula)
+      let arrStringificado = JSON.stringify(arrParseado)
+      localStorage.setItem('Favorito', arrStringificado)
     }
     this.setState({
-        estaEnFav: true
+      estaEnFav: true
     })
-}
+  }
 
-sacarFavorito(idPelicula) {
+  sacarFavorito(idPelicula) {
     let storageFav = localStorage.getItem('Favorito')
     let arrParseado = JSON.parse(storageFav)
     let favFiltrados = arrParseado.filter((id) => id !== idPelicula)
     let arrStringificado = JSON.stringify(favFiltrados)
     localStorage.setItem('Favorito', arrStringificado)
     this.setState({
-        estaEnFav: false
+      estaEnFav: false
     })
-}
+  }
 
   ocultarYMostrarDescripcion() {
     if (this.state.descripcionOculta === true) {
@@ -67,15 +69,9 @@ sacarFavorito(idPelicula) {
     }
   }
 
-  // actualizarStateFav(arrStorage){
-  //   this.setState({
-  //       favorito: arrStorage
-  //   })
-  // }
-
   render() {
     return (
-      <article className='character-card'>
+      <article className=''>
         <Link to={`/detail/id/${this.props.data.id}`}>
           <img src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
         </Link>
@@ -90,18 +86,18 @@ sacarFavorito(idPelicula) {
         </section>
 
         {
-          
+
           this.props.estaEnFav ?
             <button
-              onClick={() => this.sacarFavoritos(this.props.data.id)}
+              onClick={() => this.sacarFavorito(this.props.data.id)}
             >
-              Sacar de Favoritos
+              Sacar de Favorito
             </button>
             :
             <button
-              onClick={() => this.agregarFavoritos(this.props.data.id)}
+              onClick={() => this.agregarFavorito(this.props.data.id)}
             >
-              Agregar a Favoritos
+              Agregar a Favorito
             </button>
 
         }

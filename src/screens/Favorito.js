@@ -15,6 +15,7 @@ class Favorito extends Component {
   }
 
   componentDidMount(){
+    console.log("Películas recibidas en ContenedorFav:", this.props.peliculas);
     let storageFavs = localStorage.getItem('Favorito')
     if(storageFavs !== null){
       let storageParseado = JSON.parse(storageFavs)
@@ -23,35 +24,51 @@ class Favorito extends Component {
         .then(resp => resp.json())
         )
       )
-      .then((data)=> this.setState({
+      .then((data)=> 
+      this.setState({
         Favorito: data,
         estaEnFav: true}))
       .catch((err)=> console.log(err))
     }
+    console.log("Películas en ContenedorFav:", this.props.peliculas);
   }
 
- actualizarStateFav(id) {
-    let stateAct = this.state.Favorito.filter(elm => elm.id !== id)
-    this.setState({
-      Favorito: stateAct
-    })
-  }
-
+//  actualizarStateFav(id) {
+//     let stateAct = this.state.Favorito.filter(elm => elm.id !== id)
+//     this.setState({
+//       Favorito: stateAct
+//     })
+//   }
+actualizarStateFav(idPelicula) {
+  this.setState(prevState => ({
+    estaEnFav: false, 
+    peliculas: prevState.peliculas.filter(pelicula => pelicula.id !== idPelicula)
+  }));
+}
   render() {
+    console.log("Data recibida:", this.props.data);
+    console.log("ID de la película:", this.props.data.id);
     return (
       <div>
         {
-          this.state.peliculas.length > 0 ?
+          this.state.estaEnFav
+           ? (
+          this.state.Favorito.length === 0 ?
           <div>
-          <h1 className='titulos'>Tus peliculas favoritas: </h1>
-           
+          <h1 className='titulos'>No tenes peliculas favoritas </h1>
+          </div>
+          :
+          <div>
+            <h1>Tus peliculas favoritas</h1>
             <ContenedorFav
-            actualizarStateFav={(id) => this.actualizarState(id)} 
+            actualizarStateFav={(id) => this.actualizarStateFav(id)} 
             peliculas={this.state.Favorito}
             />
             </div>
+
+           )
           :
-          <h1>No hay peliculas en favoritos</h1>
+          <h1 className='titulos'>Cargando...</h1>
         
         }
       </div>

@@ -7,7 +7,8 @@ class PeliculaCartel extends Component {
     this.state = {
       descripcionOculta: true,
       botonText: 'Ver descripcion',
-      Favorito: []
+      Favorito: [],
+      estaEnFav: false
     }
   }
 
@@ -42,6 +43,7 @@ class PeliculaCartel extends Component {
     })
   }
 
+
   sacarFavorito(idPelicula) {
     let storageFav = localStorage.getItem('Favorito')
     let arrParseado = JSON.parse(storageFav)
@@ -69,7 +71,7 @@ class PeliculaCartel extends Component {
 
   render() {
     return (
-      <article className='character-card'>
+      <article className=''>
         <Link to={`/detail/id/${this.props.data.id}`}>
           <img src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
         </Link>
@@ -84,22 +86,19 @@ class PeliculaCartel extends Component {
         </section>
 
         {
-
-          this.props.estaEnFav ?
+            this.state.estaEnFav ?
             <button
-              onClick={() => this.sacarFavorito(this.props.data.id)}
+                onClick={() => this.sacarFavorito(this.props.data.id)}
             >
-              Sacar de Favorito
+                Sacar de Favorito
             </button>
             :
             <button
-              onClick={() => this.agregarFavorito(this.props.data.id)}
+                onClick={() => this.agregarFavorito(this.props.data.id)}
             >
-              Agregar a Favorito
+                Agregar a Favorito
             </button>
-
         }
-
         <button onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
         <button>
           <Link to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
