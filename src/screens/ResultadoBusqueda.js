@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 
-class ResultadoBusqueda extends Component {
+export default class ResultadoBusqueda extends Component {
+  constructor(props){
+    super(props)
+    //this.state({
+    //  busqueda: []
+    //})
+  }
+  componentDidMount(){
+    //fetch(CUAL ES LA URL?)
+  }
+
   render() {
     return (
       <div>ResultadoBusqueda</div>
     )
   }
 }
-
-export default ResultadoBusqueda
