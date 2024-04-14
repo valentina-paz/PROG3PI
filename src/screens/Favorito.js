@@ -15,7 +15,6 @@ class Favorito extends Component {
   }
 
   componentDidMount(){
-    console.log("Películas recibidas en ContenedorFav:", this.props.peliculas);
     let storageFavs = localStorage.getItem('Favorito')
     if(storageFavs !== null){
       let storageParseado = JSON.parse(storageFavs)
@@ -24,21 +23,13 @@ class Favorito extends Component {
         .then(resp => resp.json())
         )
       )
-      .then((data)=> 
-      this.setState({
+      .then((data)=> this.setState({
         Favorito: data,
         estaEnFav: true}))
       .catch((err)=> console.log(err))
     }
-    console.log("Películas en ContenedorFav:", this.props.peliculas);
   }
 
-//  actualizarStateFav(id) {
-//     let stateAct = this.state.Favorito.filter(elm => elm.id !== id)
-//     this.setState({
-//       Favorito: stateAct
-//     })
-//   }
 actualizarStateFav(idPelicula) {
   this.setState(prevState => ({
     estaEnFav: false, 
@@ -46,8 +37,6 @@ actualizarStateFav(idPelicula) {
   }));
 }
   render() {
-    console.log("Data recibida:", this.props.data);
-    console.log("ID de la película:", this.props.data.id);
     return (
       <div>
         {
