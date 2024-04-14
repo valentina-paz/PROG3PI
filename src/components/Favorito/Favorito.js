@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-
+import './styles.css'
 
 class Favorito extends Component {
   constructor(props) {
@@ -71,11 +71,11 @@ class Favorito extends Component {
 
   render() {
     return (
-      <article className=''>
+      <article className='imagen'>
         <Link to={`/detail/id/${this.props.data.id}`}>
-          <img src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
+          <img className= 'imgTarjeta'src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
         </Link>
-        <h2>{this.props.data.title}</h2> {/* Nombre */}
+        <h2 className='nombrePeli'>{this.props.data.title}</h2> {/* Nombre */}
         <section className='extra'> {/* descripcion */}
           {
             this.state.descripcionOculta ?
@@ -86,15 +86,15 @@ class Favorito extends Component {
         </section>
 
         {
-
+          
           this.props.estaEnFav ?
-            <button
+            <button className='botones'
               onClick={() => this.sacarFavorito(this.props.data.id)}
             >
               Sacar de Favorito
             </button>
             :
-            <button
+            <button className='botones'
               onClick={() => this.agregarFavorito(this.props.data.id)}
             >
               Agregar a Favorito
@@ -102,8 +102,8 @@ class Favorito extends Component {
 
         }
 
-        <button onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
-        <button>
+        <button className='botones'onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
+        <button className='botonDetalle'>
           <Link to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
         </button>
 

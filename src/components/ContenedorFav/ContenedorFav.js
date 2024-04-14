@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Favorito from '../Favorito/Favorito'
+import './styles.css'
 
 class ContenedorFav extends Component {
     constructor (props){
@@ -9,7 +10,7 @@ class ContenedorFav extends Component {
     render() {
     
         return (
-            <div className="">
+            <div className="detallegeneros">
               {
                 this.props.peliculas.map((elm,idx) =>
                   <Favorito

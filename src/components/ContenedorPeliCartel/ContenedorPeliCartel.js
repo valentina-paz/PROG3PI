@@ -1,5 +1,6 @@
 import React from 'react'
 import PeliculaCartel from '../PeliculaCartel/PeliculaCartel'
+import './styles.css'
 
 function ContenedorPeliCartel(props){
     return (
@@ -14,7 +15,7 @@ function ContenedorPeliCartel(props){
                 descripcion= {elm.overview}
                 />)
             :
-            <h1>Cargando</h1>
+            <h1>Cargando..</h1>
             }
         </div>)}
         

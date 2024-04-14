@@ -1,5 +1,6 @@
 import React from 'react'
 import Popular from '../Popular/Popular'
+import './styles.css'
 
 function ContenedorPeliPopular(props) {
     return (

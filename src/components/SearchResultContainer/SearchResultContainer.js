@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchResult from '../SearchResult/SearchResult'
+import './styles.css'
 
 function SearchResultContainer() {
   return (

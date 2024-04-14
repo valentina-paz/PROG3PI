@@ -1,0 +1,39 @@
+.imagen {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+.imagen article{
+    margin: 0 10px 20px;
+}
+
+.imgTarjeta {
+    width: 150px;
+    height: auto;
+    border-radius: 20px;
+  }
+
+.nombrePeli {
+    margin-bottom: 5px; 
+    font-size: medium;
+  }
+  
+.botones {
+    margin-bottom: 5px; 
+  }
+  
+.extra {
+    margin-bottom: 10px; 
+  }
+  
+button {
+    margin-right: 5px; 
+  }
+
+button.botonDetalle {
+    text-decoration: none; 
+    color: rgb(4, 4, 4); 
+}

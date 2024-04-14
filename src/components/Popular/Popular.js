@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import './styles.css'
 
 class Popular extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class Popular extends Component {
   }
   render() {
     return (
-      <article className='character-card'>
+      <article className=''>
         <Link to={`/detail/id/${this.props.data.id}`}>
           <img src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
         </Link>
@@ -81,22 +82,19 @@ class Popular extends Component {
         </section>
 
         {
-
-          this.props.estaEnFav ?
+            this.state.estaEnFav ?
             <button
-              onClick={() => this.sacarFavorito(this.props.data.id)}
+                onClick={() => this.sacarFavorito(this.props.data.id)}
             >
-              Sacar de Favorito
+                Sacar de Favorito
             </button>
             :
             <button
-              onClick={() => this.agregarFavorito(this.props.data.id)}
+                onClick={() => this.agregarFavorito(this.props.data.id)}
             >
-              Agregar a Favorito
+                Agregar a Favorito
             </button>
-
         }
-
         <button onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
         <button>
           <Link to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
