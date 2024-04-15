@@ -8,15 +8,19 @@ class Popular extends Component {
     this.state = {
       descripcionOculta: true,
       botonText: 'Ver descripcion',
-      Favorito: []
+      Favorito: [],
+      estaEnFav: false
     }
-
+    console.log(this.state.estaEnFav);
   }
   componentDidMount() {
     let storageFav = localStorage.getItem('Favorito')
     let arrParseado = JSON.parse(storageFav)
+    console.log(arrParseado);
     if (arrParseado !== null) {
-      let estaMiPeli = arrParseado.includes(this.props.id)
+      let estaMiPeli = arrParseado.includes(this.props.data.id)
+      console.log(this.props.data.id);
+      console.log(estaMiPeli);  
       if (estaMiPeli) {
         this.setState({
           estaEnFav: true
@@ -35,10 +39,12 @@ class Popular extends Component {
       arrParseado.push(idPelicula)
       let arrStringificado = JSON.stringify(arrParseado)
       localStorage.setItem('Favorito', arrStringificado)
+      this.setState({
+        estaEnFav: true
+      })
     }
-    this.setState({
-      estaEnFav: true
-    })
+
+    console.log(this.state.estaEnFav);
   }
 
   sacarFavorito(idPelicula) {

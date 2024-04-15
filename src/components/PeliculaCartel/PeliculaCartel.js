@@ -11,13 +11,14 @@ class PeliculaCartel extends Component {
       Favorito: [],
       estaEnFav: false
     }
+    console.log(this.state.estaEnFav);
   }
 
   componentDidMount() {
     let storageFav = localStorage.getItem('Favorito')
     let arrParseado = JSON.parse(storageFav)
     if (arrParseado !== null) {
-        let estaMiPeli = arrParseado.includes(this.props.id)
+        let estaMiPeli = arrParseado.includes(this.props.data.id)
         if (estaMiPeli) {
             this.setState({
                 estaEnFav: true
@@ -42,6 +43,7 @@ class PeliculaCartel extends Component {
     this.setState({
       estaEnFav: true
     })
+    console.log(this.state.estaEnFav);
   }
 
 
@@ -77,7 +79,7 @@ class PeliculaCartel extends Component {
           <img className= ''src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
         </Link>
         <h2 className=''>{this.props.data.title}</h2> {/* Nombre */}
-        <section className=''> {/* descripcion */}
+        <section className='extra'> {/* descripcion */}
           {
             this.state.descripcionOculta ?
               ''
@@ -87,7 +89,7 @@ class PeliculaCartel extends Component {
         </section>
 
         {
-          this.props.estaEnFav ?
+          this.state.estaEnFav ?
             <button className=''
               onClick={() => this.sacarFavorito(this.props.data.id)}
             >

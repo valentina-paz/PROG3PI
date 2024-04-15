@@ -86,7 +86,7 @@ class Favorito extends Component {
 
         {
           
-          this.props.estaEnFav ?
+          this.state.estaEnFav ?
             <button className='botones'
               onClick={() => this.sacarFavorito(this.props.data.id)}
             >

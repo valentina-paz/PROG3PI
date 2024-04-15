@@ -37,8 +37,7 @@ actualizarStateFav(idPelicula) {
     return (
       <div>
         {
-          this.state.estaEnFav
-           ? (
+          this.state.estaEnFav ? (
           this.state.Favorito.length === 0 ?
           <div>
           <h1 className='titulos-noHayFav'>No tenes peliculas favoritas </h1>

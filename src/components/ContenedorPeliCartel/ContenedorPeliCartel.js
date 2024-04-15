@@ -10,9 +10,6 @@ function ContenedorPeliCartel(props){
                 <PeliculaCartel 
                 key={idx + elm.title} 
                 data={elm} 
-                imagen= {"https://image.tmdb.org/t/p/w342/" + elm.poster_path}
-                titulo= {elm.title}
-                descripcion= {elm.overview}
                 />)
             :
             <h1>Cargando..</h1>
