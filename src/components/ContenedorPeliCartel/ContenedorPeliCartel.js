@@ -12,7 +12,7 @@ function ContenedorPeliCartel(props){
                 data={elm} 
                 />)
             :
-            <h1>Cargando..</h1>
+            <h1>Cargando...</h1>
             }
         </div>)}
         

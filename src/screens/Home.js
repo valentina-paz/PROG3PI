@@ -39,7 +39,7 @@ class Home extends Component {
   console.log(this.state.todasLasPelis)
   }
 
-  
+
   filtrarPeliculas(valorInput){
     this.props.history.push('/resultadosBusqueda/'+ valorInput)
   }
