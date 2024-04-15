@@ -1,16 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Favorito from '../Favorito/Favorito'
 import './styles.css'
 
-class ContenedorFav extends Component{
-    constructor (props){
-        super (props)}
-
-        render() {
-            return (
-            <div className="detallegeneros">
+function ContenedorFav(props) {
+  return (
+    <div className="detallegeneros">
               {
-                this.props.peliculas.map((elm,idx) =>
+                props.peliculas.map((elm,idx) =>
                 
                   <Favorito 
                     key={idx + elm.title} 
@@ -20,15 +16,11 @@ class ContenedorFav extends Component{
                     imagen={'https://image.tmdb.org/t/p/w500' + elm.poster_path}
                     descripcion={elm.overview}
                     estaEnFav={elm.estaEnFav}
-                    actualizarState={this.props.actualizarState ? (id) => this.props.actualizarState(id) : false}
+                    actualizarState={props.actualizarState ? (id) => props.actualizarState(id) : false}
                   />)
               }
             </ div>
-            
-          )
-        }
-        
-    }
+  )
+}
 
-  
-export default ContenedorFav;
+export default ContenedorFav

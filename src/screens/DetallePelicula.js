@@ -22,14 +22,14 @@ class DetallePelicula extends Component {
     }
 
     render() {
-      return this.state.pelidata !== null ? (
+      return (this.state.pelidata !== null ? (
         <Pelicula pelicula={this.state.pelidata} />)
         :
         (
         <section className="" id="section">
           <h2 className='titulos'>Cargando...</h2>
         </section>
-        )
+        ))
   }
 }
 

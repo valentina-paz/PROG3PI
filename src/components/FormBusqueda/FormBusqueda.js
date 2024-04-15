@@ -12,13 +12,13 @@ class FormBusqueda extends Component {
 
     evitarSubmit(event){
         event.preventDefault()
+        this.props.filtrarPeliculas(this.state.valorInput)
     }
 
     guardarValor(event){
         this.setState({
             valorInput: event.target.value
-        },
-        ()=> this.props.filtrarPeliculas(this.state.valorInput))
+        })
     }
 
     render(){
