@@ -29,7 +29,7 @@ class Home extends Component {
       .then(resp => resp.json())
       .then(data => {
         this.setState({
-          peliculasPopulares: data.results.splice(0,5),
+          peliculasPopulares: data.results.splice(15,20),
         })
       })
       .catch(err => console.log(err))

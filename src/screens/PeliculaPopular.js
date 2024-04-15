@@ -19,7 +19,7 @@ class PeliculaPopular extends Component {
       .then(resp => resp.json())
       .then(data => { 
         this.setState({
-          peliculas: data.results,
+          peliculas: data.results.slice(0,5),
           backup: data.results,
           page: this.state.page + 1
         })
