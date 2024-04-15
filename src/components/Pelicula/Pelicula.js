@@ -51,34 +51,40 @@ class Pelicula extends Component {
   }
 
   render() {
-    let generos = this.props.pelicula.genres
+    let generos = this.props.pelicula.genres;
     return (
-      <article className=''>
-        <h2>{this.props.pelicula.title}</h2> 
-        <img src={"https://image.tmdb.org/t/p/w342/" + this.props.pelicula.poster_path} alt="" />
-        <p className="">Rating: {this.props.pelicula.vote_average}</p>
-        <p className="">Fecha de estreno: {this.props.pelicula.release_date}</p>
-        <p className="n">Duración(minutos): {this.props.pelicula.runtime}</p>
-        <p className="">Sinopsis: {this.props.pelicula.overview}</p>
-        <ul className=""> Géneros: {generos.map((genero) => <li> {genero.name}</li>)} </ul>
-
-        {
-            this.state.estaEnFav ?
-            <button
-                onClick={() => this.sacarFavorito(this.props.pelicula.id)}
-            >
-                Sacar de Favorito
-            </button>
-            :
-            <button
-                onClick={() => this.agregarFavorito(this.props.pelicula.id)}
-            >
-                Agregar a Favorito
-            </button>
-        }
-      
+      <div className='container'>
+        <article className='detalles'>
+        <div className='imagen-titulo'>
+          <h2>{this.props.pelicula.title}</h2>
+          <img src={'https://image.tmdb.org/t/p/w342/' + this.props.pelicula.poster_path} alt='' />
+        </div>
+        <div className='info'>
+          <p className='detalleRating'>Rating: {this.props.pelicula.vote_average}</p>
+          <p className='detalelEstreno'>Fecha de estreno: {this.props.pelicula.release_date}</p>
+          <p className='detalleDuracion'>Duración(minutos): {this.props.pelicula.runtime}</p>
+          <p className='sinopsis'>Sinopsis: 
+          {this.props.pelicula.overview}</p>
+          <ul className='detalleGeneros'>
+            GÉNEROS: 
+            {generos.map((genero) => (
+            <li key={genero.id}>{genero.name}</li>
+            ))}
+          </ul>
+        </div>
+        {this.state.estaEnFav ? (
+          <button className='botones' onClick={() => this.sacarFavorito(this.props.pelicula.id)}>
+            Sacar de Favorito
+          </button>
+        ) : (
+          <button className='botones' onClick={() => this.agregarFavorito(this.props.pelicula.id)}>
+            Agregar a Favorito
+          </button>
+        )}
       </article>
-    )
+      </div>
+      
+    );
   }
 }
 

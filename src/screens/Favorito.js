@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import PeliculaCartel from '../components/PeliculaCartel/PeliculaCartel'
 import ContenedorFav from '../components/ContenedorFav/ContenedorFav';
-
-let pelisCartelera = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06'
 
 class Favorito extends Component {
 
@@ -44,11 +41,11 @@ actualizarStateFav(idPelicula) {
            ? (
           this.state.Favorito.length === 0 ?
           <div>
-          <h1 className='titulos'>No tenes peliculas favoritas </h1>
+          <h1 className='titulos-noHayFav'>No tenes peliculas favoritas </h1>
           </div>
           :
           <div>
-            <h1>Tus peliculas favoritas</h1>
+            <h1 className='titulos'>TUS PELICULAS FAVORITAS</h1>
             <ContenedorFav
             actualizarStateFav={(id) => this.actualizarStateFav(id)} 
             peliculas={this.state.Favorito}

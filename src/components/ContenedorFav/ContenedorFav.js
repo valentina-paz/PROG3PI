@@ -1,19 +1,14 @@
-import React, { Component } from 'react'
+
 import Favorito from '../Favorito/Favorito'
 import './styles.css'
 
-class ContenedorFav extends Component {
-    constructor (props){
-      super (props)
-    }
-
-    render() {
-    
+function ContenedorFav (){
         return (
             <div className="detallegeneros">
               {
                 this.props.peliculas.map((elm,idx) =>
-                  <Favorito
+                
+                  <Favorito 
                     key={idx + elm.title} 
                     data= {elm}
                     id={elm.id}
@@ -28,6 +23,6 @@ class ContenedorFav extends Component {
             
           )
     }
-  }
+
   
 export default ContenedorFav;

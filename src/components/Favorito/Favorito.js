@@ -103,8 +103,8 @@ class Favorito extends Component {
         }
 
         <button className='botones'onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
-        <button className='botonDetalle'>
-          <Link to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
+        <button className='botones'>
+          <Link  to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
         </button>
 
       </article>

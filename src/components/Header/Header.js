@@ -8,8 +8,10 @@ function Header(props){
         <nav>
             <ul className="main-nav">
                 { 
-                    props.elementosMenu.map((elm, idx)=> <Link to= {elm.path} key={`${idx}${elm.path}`}>
-                    {elm.nombre} </Link>)}
+                    props.elementosMenu.map((elm, idx)=> <li className="lista_nav">
+                    
+                    <Link to= {elm.path} key={`${idx}${elm.path}`}>
+                    {elm.nombre} </Link>  </li>)}
             </ul>
         </nav>
     )

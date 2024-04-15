@@ -3,7 +3,7 @@ import './styles.css'
 
 function Footer() {
   return (
-    <div><p>Pilar Canil | Valentina Paz | Antonella Plati</p></div>
+    <div className='contenedor-principal'><p className='footer'>Pilar Canil | Valentina Paz | Antonella Plati</p></div>
   )
 }
 

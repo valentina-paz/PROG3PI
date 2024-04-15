@@ -1,0 +1,60 @@
+.detalles {
+    display: inline-block; 
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.425);
+    border-radius: 20px;
+}
+  
+.imagen-titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+  
+.info {
+    text-align: center;
+}
+  
+.detalleGeneros {
+    list-style: none;
+    padding: 0;
+    color: #f4f0f0;
+}
+  
+.sinopsis {
+    max-width: 600px;
+    overflow-wrap: break-word;
+}
+  
+.botones {
+    background-color: #56ba6d;
+    border: none;
+    color: rgb(233, 239, 235);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+  
+.botones:hover {
+    background-color: #1a492d;
+}
+
+.detalleRating, .detalelEstreno, .detalleDuracion {
+    display: block; 
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #4a4a4a;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.container {
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
