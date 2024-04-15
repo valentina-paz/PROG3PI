@@ -7,7 +7,7 @@ class Favorito extends Component {
     super(props)
     this.state={
       Favorito: [],
-      estaEnFav: false
+      yaHizoElFetch: false,
     }
   }
 
@@ -22,22 +22,21 @@ class Favorito extends Component {
       )
       .then((data)=> this.setState({
         Favorito: data,
-        estaEnFav: true}))
+        yaHizoElFetch: true}))
       .catch((err)=> console.log(err))
     }
   }
 
 actualizarStateFav(idPelicula) {
-  this.setState(prevState => ({
-    estaEnFav: false, 
-    peliculas: prevState.peliculas.filter(pelicula => pelicula.id !== idPelicula)
-  }));
+  this.setState({
+    Favorito: this.state.Favorito.filter(pelicula => pelicula.id !== idPelicula)
+  });
 }
   render() {
     return (
       <div>
         {
-          this.state.estaEnFav ? (
+          this.state.yaHizoElFetch ? (
           this.state.Favorito.length === 0 ?
           <div>
           <h1 className='titulos-noHayFav'>No tenes peliculas favoritas </h1>

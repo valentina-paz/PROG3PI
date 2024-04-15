@@ -47,6 +47,7 @@ class Favorito extends Component {
     let storageFav = localStorage.getItem('Favorito')
     let arrParseado = JSON.parse(storageFav)
     let favFiltrados = arrParseado.filter((id) => id !== idPelicula)
+    this.props.actualizarStateFav(idPelicula)
     let arrStringificado = JSON.stringify(favFiltrados)
     localStorage.setItem('Favorito', arrStringificado)
     this.setState({

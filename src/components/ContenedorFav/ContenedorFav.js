@@ -16,7 +16,7 @@ function ContenedorFav(props) {
                     imagen={'https://image.tmdb.org/t/p/w500' + elm.poster_path}
                     descripcion={elm.overview}
                     estaEnFav={elm.estaEnFav}
-                    actualizarState={props.actualizarState ? (id) => props.actualizarState(id) : false}
+                    actualizarStateFav={props.actualizarStateFav ? (id) => props.actualizarStateFav(id) : false}
                   />)
               }
             </ div>
