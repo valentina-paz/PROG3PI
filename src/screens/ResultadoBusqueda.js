@@ -9,7 +9,7 @@ export default class ResultadoBusqueda extends Component {
     }
   }
   componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/search/multi?query=${this.props.match.params.resultadosBusqueda}&api_key=fa2e1f3d35f9c24f149ede55b3cf6a06`)
+    fetch(`https://api.themoviedb.org/3/search/movie?query=${this.props.match.params.resultadosBusqueda}&api_key=fa2e1f3d35f9c24f149ede55b3cf6a06`)
       .then(resp => resp.json())
       .then(data => { 
         this.setState({
@@ -29,7 +29,7 @@ export default class ResultadoBusqueda extends Component {
           <SearchResultContainer peliBuscada={this.state.busqueda} />
         </section>
         :
-        <h2>No se encontraron resultados para: {this.state.query}</h2>
+        <h2>No se encontraron resultados para: {this.props.match.params.resultadosBusqueda}</h2>
     )
   }
 }
