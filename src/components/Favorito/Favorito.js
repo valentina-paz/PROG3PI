@@ -8,7 +8,6 @@ class Favorito extends Component {
     this.state = {
       descripcionOculta: true,
       botonText: 'Ver descripcion',
-      
       estaEnFav: false
     }
   }

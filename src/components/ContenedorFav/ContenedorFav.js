@@ -1,9 +1,13 @@
-
+import React, { Component } from 'react'
 import Favorito from '../Favorito/Favorito'
 import './styles.css'
 
-function ContenedorFav (){
-        return (
+class ContenedorFav extends Component{
+    constructor (props){
+        super (props)}
+        
+        render() {
+            return (
             <div className="detallegeneros">
               {
                 this.props.peliculas.map((elm,idx) =>
@@ -22,6 +26,8 @@ function ContenedorFav (){
             </ div>
             
           )
+        }
+        
     }
 
   
