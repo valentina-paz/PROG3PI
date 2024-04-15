@@ -51,6 +51,7 @@ class PeliculaPopular extends Component {
       <div>
       <FormFiltro
         filtrarPeliculas={(valorInput) => this.filtrarPeliculas(valorInput)} />
+        <h1 className='titulos'>PELICULAS POPULARES</h1>
       <ContenedorPeliPopular pelisPopulares={this.state.peliculas} />
       <div>
         <button onClick={() => this.traerMasPeliculas()}>

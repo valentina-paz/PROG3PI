@@ -1,0 +1,26 @@
+body {
+    background-color: black;
+}
+.detallegeneros {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    background-color: rgba(85, 84, 84, 0.82);
+    border-radius: 20px;
+}
+  
+.imagen {
+    margin: 20px; 
+}
+
+h1{
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+p{
+    color:white;
+}

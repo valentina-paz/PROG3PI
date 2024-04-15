@@ -4,7 +4,7 @@ import './styles.css'
 
 function ContenedorPeliPopular(props) {
     return (
-        <div className='pelisCartelContainer'>
+        <div className='detallegeneros'>
             {props.pelisPopulares.length > 0 ?
                 props.pelisPopulares.map((elm, idx) =>
                     <Popular 

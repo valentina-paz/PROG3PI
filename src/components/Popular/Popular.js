@@ -73,11 +73,11 @@ class Popular extends Component {
   }
   render() {
     return (
-      <article className=''>
+      <article className='imagen'>
         <Link to={`/detail/id/${this.props.data.id}`}>
-          <img src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
+          <img className= 'imgTarjeta'src={"https://image.tmdb.org/t/p/w342/" + this.props.data.poster_path} alt="" />
         </Link>
-        <h2>{this.props.data.title}</h2> {/* Nombre */}
+        <h2 className='nombrePeli'>{this.props.data.title}</h2> {/* Nombre */}
         <section className='extra'> {/* descripcion */}
           {
             this.state.descripcionOculta ?
@@ -88,22 +88,25 @@ class Popular extends Component {
         </section>
 
         {
-            this.state.estaEnFav ?
-            <button
-                onClick={() => this.sacarFavorito(this.props.data.id)}
+          
+          this.state.estaEnFav ?
+            <button className='botones'
+              onClick={() => this.sacarFavorito(this.props.data.id)}
             >
-                Sacar de Favorito
+              Sacar de Favorito
             </button>
             :
-            <button
-                onClick={() => this.agregarFavorito(this.props.data.id)}
+            <button className='botones'
+              onClick={() => this.agregarFavorito(this.props.data.id)}
             >
-                Agregar a Favorito
+              Agregar a Favorito
             </button>
+
         }
-        <button onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
-        <button>
-          <Link to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
+
+        <button className='botones'onClick={() => this.ocultarYMostrarDescripcion()}>{this.state.botonText}</button>
+        <button className='botones'>
+          <Link  to={`/detail/id/${this.props.data.id}`}>Ir a detalle</Link>
         </button>
 
       </article>
