@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ContenedorPeliCartel from '../components/ContenedorPeliCartel/ContenedorPeliCartel'
 import FormFiltro from '../components/FormFiltro/FormFiltro'
-let pelisCarteleraUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06'
+let pelisCarteleraUrl = 'https://api.themoviedb.org/3/movie/now_playing?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06&'
 
 
 class PeliculaCartelera extends Component {
@@ -19,7 +19,7 @@ class PeliculaCartelera extends Component {
       .then(resp => resp.json())
       .then(data => {
         this.setState({
-          peliculas: data.results,
+          peliculas: data.results.slice(0,5),
           backup: data.results,
           page: this.state.page + 1
         })

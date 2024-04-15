@@ -4,7 +4,7 @@ import './styles.css'
 
 function SearchResultContainer(props) {
   return (
-    <div className='pelisCartelContainer'>
+    <div className='detallegeneros'>
             {props.peliBuscada.length > 0 ?
                 props.peliBuscada.map((elm, idx) => 
                 <SearchResult 
