@@ -5,7 +5,8 @@ class DetallePelicula extends Component {
     constructor(props){
         super(props)
         this.state = {
-          pelidata: null
+          pelidata: null,
+          estaEnFav: false
         }
     }
 
@@ -13,24 +14,30 @@ class DetallePelicula extends Component {
       fetch (`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=fa2e1f3d35f9c24f149ede55b3cf6a06`)
         .then(resp => resp.json())
         .then(data => {
-        console.log(data)
+        //console.log(data)
         this.setState({
-        pelidata: data
+          pelidata: data
         })
         })
         .catch(err => console.log(err))
-    }
 
-    actualizarStateFav(idPelicula) {
-      this.setState({
-        Favorito: this.state.Favorito.filter(pelicula => pelicula.id !== idPelicula)
-      })};
+      let storageFav = localStorage.getItem('Favorito')
+      let arrParseado = JSON.parse(storageFav)
+      console.log(this.state.pelidata)
+      if (arrParseado !== null) {
+          let estaMiPeli = arrParseado.includes(this.state.pelidata.id)
+          if (estaMiPeli) {
+              this.setState({
+                  estaEnFav: true
+              })
+          } } }
 
     render() {
+      
       return (this.state.pelidata !== null ? (
         <Pelicula 
         pelicula={this.state.pelidata} 
-        actualizarStateFav={this.actualizarStateFav}  
+        estaEnFav={this.state.estaEnFav}  
         />)
         :
         (

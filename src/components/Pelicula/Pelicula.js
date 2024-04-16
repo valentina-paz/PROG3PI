@@ -23,35 +23,6 @@ class Pelicula extends Component {
     }
   }
 
-  agregarFavorito(idPelicula) {
-    let storageFav = localStorage.getItem('Favorito')
-    if (storageFav === null) {
-      let arrayId = [idPelicula]
-      let arrStringificado = JSON.stringify(arrayId)
-      localStorage.setItem('Favorito', arrStringificado)
-    } else {
-      let arrParseado = JSON.parse(storageFav)
-      arrParseado.push(idPelicula)
-      let arrStringificado = JSON.stringify(arrParseado)
-      localStorage.setItem('Favorito', arrStringificado)
-    }
-    this.setState({
-      estaEnFav: true
-    })
-  }
-
-  sacarFavorito(idPelicula) {
-    let storageFav = localStorage.getItem('Favorito')
-    let arrParseado = JSON.parse(storageFav)
-    let favFiltrados = arrParseado.filter((id) => id !== idPelicula)
-    this.props.actualizarStateFav(idPelicula)
-    let arrStringificado = JSON.stringify(favFiltrados)
-    localStorage.setItem('Favorito', arrStringificado)
-    this.setState({
-      estaEnFav: false
-    })
-  }
-
   render() {
     let generos = this.props.pelicula.genres;
     return (
