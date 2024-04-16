@@ -21,9 +21,17 @@ class DetallePelicula extends Component {
         .catch(err => console.log(err))
     }
 
+    actualizarStateFav(idPelicula) {
+      this.setState({
+        Favorito: this.state.Favorito.filter(pelicula => pelicula.id !== idPelicula)
+      })};
+
     render() {
       return (this.state.pelidata !== null ? (
-        <Pelicula pelicula={this.state.pelidata} />)
+        <Pelicula 
+        pelicula={this.state.pelidata} 
+        actualizarStateFav={this.actualizarStateFav}  
+        />)
         :
         (
         <section className="" id="section">

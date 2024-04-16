@@ -5,7 +5,8 @@ class Pelicula extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      estaEnFav: false
+      estaEnFav: false,
+      Favorito: []
     }
   }
 
@@ -43,6 +44,7 @@ class Pelicula extends Component {
     let storageFav = localStorage.getItem('Favorito')
     let arrParseado = JSON.parse(storageFav)
     let favFiltrados = arrParseado.filter((id) => id !== idPelicula)
+    this.props.actualizarStateFav(idPelicula)
     let arrStringificado = JSON.stringify(favFiltrados)
     localStorage.setItem('Favorito', arrStringificado)
     this.setState({
@@ -76,15 +78,22 @@ class Pelicula extends Component {
           </div>
            
         </div>
-        {this.state.estaEnFav ? (
-          <button className='botones' onClick={() => this.sacarFavorito(this.props.pelicula.id)}>
-            Sacar de Favorito
-          </button>
-        ) : (
-          <button className='botones' onClick={() => this.agregarFavorito(this.props.pelicula.id)}>
-            Agregar a Favorito
-          </button>
-        )}
+        {
+          
+          this.state.estaEnFav ?
+            <button className='botones'
+              onClick={() => this.sacarFavorito(this.props.pelicula.id)}
+            >
+              Sacar de Favorito
+            </button>
+            :
+            <button className='botones'
+              onClick={() => this.agregarFavorito(this.props.pelicula.id)}
+            >
+              Agregar a Favorito
+            </button>
+
+        }
       </article>
       </div>
       
