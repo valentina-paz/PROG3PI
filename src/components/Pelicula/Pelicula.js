@@ -36,9 +36,11 @@ class Pelicula extends Component {
           <p className='detalleRating'>Rating: {this.props.pelicula.vote_average}</p>
           <p className='detalelEstreno'>Fecha de estreno: {this.props.pelicula.release_date}</p>
           <p className='detalleDuracion'>Duración(minutos): {this.props.pelicula.runtime}</p>
-          <p className='sinopsis'>Sinopsis: 
+    
+          <span className='sinopsis'>Sinopsis: 
           <h4 className='overview'>{this.props.pelicula.overview}</h4>
-          </p>
+          </span>
+  
           <div className='generosContainer'>
              <span className='generosTitulo'>GÉNEROS: </span>
            <ul className='detalleGeneros'> 
