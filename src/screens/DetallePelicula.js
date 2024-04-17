@@ -25,12 +25,29 @@ class DetallePelicula extends Component {
       let arrParseado = JSON.parse(storageFav)
       console.log(this.state.pelidata)
       if (arrParseado !== null) {
-          let estaMiPeli = arrParseado.includes(this.state.pelidata.id)
+          let estaMiPeli = arrParseado.includes(this.props.match.params.id)
           if (estaMiPeli) {
               this.setState({
                   estaEnFav: true
               })
           } } }
+          
+    agregarFavorito(idPelicula) {
+      let storageFav = localStorage.getItem('Favorito')
+      if (storageFav === null) {
+        let arrayId = [idPelicula]
+        let arrStringificado = JSON.stringify(arrayId)
+        localStorage.setItem('Favorito', arrStringificado)
+      } else {
+        let arrParseado = JSON.parse(storageFav)
+        arrParseado.push(idPelicula)
+        let arrStringificado = JSON.stringify(arrParseado)
+        localStorage.setItem('Favorito', arrStringificado)
+      }
+      this.setState({
+        estaEnFav: true
+      })
+    }
 
     render() {
       

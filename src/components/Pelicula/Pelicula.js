@@ -51,7 +51,7 @@ class Pelicula extends Component {
         </div>
         {
           
-          this.state.estaEnFav ?
+          this.props.estaEnFav ?
             <button className='botones'
               onClick={() => this.sacarFavorito(this.props.pelicula.id)}
             >
