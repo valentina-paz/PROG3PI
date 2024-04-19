@@ -14,13 +14,43 @@ class Pelicula extends Component {
     let storageFav = localStorage.getItem('Favorito')
     let arrParseado = JSON.parse(storageFav)
     if (arrParseado !== null) {
-        let estaMiPeli = arrParseado.includes(this.props.id)
+        let estaMiPeli = arrParseado.includes(this.props.pelicula.id)
         if (estaMiPeli) {
             this.setState({
                 estaEnFav: true
             })
         }
     }
+  }
+
+  agregarFavorito(idPelicula) {
+    let storageFav = localStorage.getItem('Favorito')
+    if (storageFav === null) {
+      let arrayId = [idPelicula]
+      let arrStringificado = JSON.stringify(arrayId)
+      localStorage.setItem('Favorito', arrStringificado)
+    } else {
+      let arrParseado = JSON.parse(storageFav)
+      arrParseado.push(idPelicula)
+      let arrStringificado = JSON.stringify(arrParseado)
+      localStorage.setItem('Favorito', arrStringificado)
+    }
+    this.setState({
+      estaEnFav: true
+    })
+    console.log(this.state.estaEnFav);
+  }
+
+
+  sacarFavorito(idPelicula) {
+    let storageFav = localStorage.getItem('Favorito')
+    let arrParseado = JSON.parse(storageFav)
+    let favFiltrados = arrParseado.filter((id) => id !== idPelicula)
+    let arrStringificado = JSON.stringify(favFiltrados)
+    localStorage.setItem('Favorito', arrStringificado)
+    this.setState({
+      estaEnFav: false
+    })
   }
 
   render() {
