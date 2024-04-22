@@ -59,4 +59,17 @@ p{
     
 }
 
+@media  (max-width: 600px) {
+    .formulario-busqueda input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .botones {
+        width: 60%;
+    }
+}
+
+
 

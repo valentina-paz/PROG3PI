@@ -41,3 +41,28 @@
     color: rgb(244, 239, 239);
     font-size: large;
 }
+
+
+@media  (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        margin-right: 0;
+    }
+
+    .nav {
+        margin-top: 10px;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav li {
+        margin: 5px 0;
+    }
+}
