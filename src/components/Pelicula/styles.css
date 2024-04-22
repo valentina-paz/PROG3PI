@@ -72,3 +72,56 @@
     font-style: italic;
     font-weight: normal;
 }
+
+@media screen and (max-width: 600px) {
+    .detalles {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .imagen {
+        max-width: 100%;
+        max-height: auto;
+    }
+
+    .imagen-titulo {
+        margin-bottom: 10px;
+    }
+
+    .detalleGeneros li {
+        margin: 5px 0;
+    }
+
+    .container {
+        margin: 10px;
+    }
+
+    .sinopsis {
+        max-width: 100%;
+    }
+
+    
+  
+   
+    .detalleRating {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+    .detalelEstreno {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+    .detalleDuracion {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+    .sinopsis {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+
+    .generosTitulo {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+}
