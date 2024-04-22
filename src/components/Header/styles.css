@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@
 .nav {
     display: flex;
     align-items: center;
-    flex-grow: 1; 
+  
     justify-content: center; 
 }
 
@@ -35,9 +35,6 @@
     font-weight: 500;
 }
 
-.main-nav li:hover {
-    background-color: #9e9999;
-}
 
 .main-nav a {
     text-decoration: none;

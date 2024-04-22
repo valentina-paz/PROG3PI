@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import './styles.css'
 
 class FormBusqueda extends Component {
     constructor(props){
@@ -23,14 +22,14 @@ class FormBusqueda extends Component {
 
     render(){
         return(
-            <form
+            <form className= "formulario-busqueda"
                 onSubmit={(event)=> this.evitarSubmit(event)}
             >
                 <input
                 onChange={(event)=> this.guardarValor(event)}
                 placeholder="Busca una pelicula" />
                 <Link to={`/resultadosBusqueda/${this.state.valorInput}`}>
-                    <button type="submit">Buscar</button>
+                    <button className= "botones" type="submit">Buscar</button>
                 </Link>
             </form>
         )

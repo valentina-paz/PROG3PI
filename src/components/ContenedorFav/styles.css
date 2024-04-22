@@ -1,6 +1,4 @@
-body {
-    background-color: black;
-}
+
 .detallegeneros {
     display: flex;
     flex-wrap: wrap; 
@@ -13,14 +11,3 @@ body {
     margin: 20px; 
 }
 
-h1{
-    color: white;
-}
-
-h2{
-    color: white;
-}
-
-p{
-    color:white;
-}

@@ -54,7 +54,7 @@ class PeliculaPopular extends Component {
         <h1 className='titulos'>PELICULAS POPULARES</h1>
       <ContenedorPeliPopular pelisPopulares={this.state.peliculas} />
       <div>
-        <button onClick={() => this.traerMasPeliculas()}>
+        <button className="botones" onClick={() => this.traerMasPeliculas()}>
           Mas peliculas
         </button>
       </div>

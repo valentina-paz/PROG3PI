@@ -55,7 +55,7 @@ class PeliculaCartelera extends Component {
           <h1 className='titulos'>PELICULAS EN CARTELERA</h1>
           <ContenedorPeliCartel pelisCartelera={this.state.peliculas} />
         <div>
-          <button onClick={() => this.traerMasPeliculas()}>
+          <button className="botones"  onClick={() => this.traerMasPeliculas()}>
             Mas peliculas
           </button>
         </div>

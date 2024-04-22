@@ -18,23 +18,7 @@
     margin-top: 10px; 
 }
   
-.botones {
-    background-color: #56ba6d; 
-    border: none;
-    color: rgb(233, 239, 235);
-    padding: 5px 10px; 
-    text-align: center;
-    text-decoration: none; 
-    display: block; 
-    margin: 4px auto; 
-    font-size: 15px;
-    border-radius: 10px; 
-    
-}
-  
-.botones:hover {
-    background-color: #1a492d; 
-}
+
 
 
 

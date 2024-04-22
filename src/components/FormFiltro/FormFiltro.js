@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './styles.css'
+
 
 class FormFiltro extends Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class FormFiltro extends Component {
 
     render() {
         return (
-            <form
+            <form className= "formulario-busqueda"
             onSubmit={(evento)=> this.evitarSubmit(evento)}>
                 <input 
                 onChange={(evento)=>this.guardarValor(evento)}

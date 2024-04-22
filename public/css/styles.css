@@ -7,7 +7,56 @@
     padding: 10px; 
 }
 
+body {
+    background-color: black;
+}
+
 a {
     text-decoration: none;
     color: white;
 }
+
+h1{
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+p{
+    color:white;
+}
+
+.formulario-busqueda {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.formulario-busqueda input {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px; 
+}
+
+.botones {
+    background-color: #56ba6d; 
+    border: none;
+    color: rgb(233, 239, 235);
+    padding: 5px 10px; 
+    text-align: center;
+    text-decoration: none; 
+    display: block; 
+    margin: 4px auto; 
+    font-size: 15px;
+    border-radius: 10px; 
+    
+}
+
+
